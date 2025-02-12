@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Road+Rage&display=swap');
+
+
+body{
+  @apply bg-[#052228]
+}
+
