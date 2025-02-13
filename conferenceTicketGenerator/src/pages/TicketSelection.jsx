@@ -101,7 +101,7 @@ const TicketSelection = () => {
               <div className="mt-5 w-full max-w-md">
                 <label className="text-sm">Number of Tickets</label>
                 <select
-                  className="w-full h-12 rounded-lg p-4 border border-[#07373f] bg-[#052228] text-white"
+                  className="w-full h-14 rounded-lg p-4 border border-[#07373f] bg-[#052228] text-white mb-5"
                   value={ticketCount}
                   onChange={(e) => updateTicketCount(Number(e.target.value))}
                 >
