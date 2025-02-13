@@ -1,15 +1,32 @@
+import React, { useState } from "react";
 import { MdCloudUpload } from "react-icons/md";
 import { useTicket } from "../context/TicketContext";
 
 const ImageUploader = () => {
   const { imageUrl, uploading, imageError, successMessage, handleImageUpload } =
     useTicket();
+  const [isDragging, setIsDragging] = useState(false); // State to track drag-over
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
+  const handleFileChange = (file) => {
     if (file) {
       handleImageUpload(file);
     }
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files[0]; // Get the dropped file
+    handleFileChange(file);
   };
 
   return (
@@ -19,14 +36,19 @@ const ImageUploader = () => {
 
         <label
           htmlFor="imageUpload"
-          className="w-full h-55 p-4 mt-5 text-center relative flex justify-center items-center rounded-2xl cursor-pointer bg-[#041E23]"
+          className={`w-full h-55 p-4 mt-5 text-center relative flex justify-center items-center rounded-2xl cursor-pointer bg-[#041E23] ${
+            isDragging ? "border-2 border-dashed border-blue-500" : ""
+          }`}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
         >
           <input
             id="imageUpload"
             type="file"
             className="hidden"
             accept="image/*"
-            onChange={handleFileChange}
+            onChange={(e) => handleFileChange(e.target.files[0])}
           />
 
           <div className="w-42 h-full p-4 bg-[#0E464F] text-[#FFFFFF] rounded-3xl flex justify-center items-center">
@@ -46,6 +68,20 @@ const ImageUploader = () => {
             )}
           </div>
         </label>
+
+        {imageUrl && (
+          <p className="mt-2 text-blue-500 text-sm break-all">
+            Image URL:{" "}
+            <a
+              href={imageUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              {imageUrl}
+            </a>
+          </p>
+        )}
 
         {successMessage && (
           <p className="mt-2 text-green-500 text-sm">{successMessage}</p>
