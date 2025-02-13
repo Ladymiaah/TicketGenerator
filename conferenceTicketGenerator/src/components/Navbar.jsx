@@ -4,7 +4,7 @@ import Ticz from "../assets/ticz.png";
 
 function Navbar() {
   return (
-    <div className="w-full max-w-[1200px] h-[76px] mt-6 mx-auto rounded-[24px] border border-[#197686] flex flex-wrap md:flex-nowrap items-center justify-between px-4 sm:px-8 md:px-16 py-2">
+    <div className="w-full md:max-w-6xl h-[76px] mt-2 mb-10 mx-auto rounded-[24px] border border-[#197686] flex flex-wrap md:flex-nowrap items-center justify-between px-4 sm:px-8 md:px-16 py-2">
       {/* Logo Section */}
       <div className="flex items-center gap-2">
         <img

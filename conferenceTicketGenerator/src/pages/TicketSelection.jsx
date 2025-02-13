@@ -45,7 +45,7 @@ const TicketSelection = () => {
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center mt-10 text-white px-4">
-      <div className="w-full max-w-4xl border border-[#0E464F] rounded-3xl p-6 md:p-12">
+      <div className="w-full max-w-6xl border border-[#0E464F] rounded-3xl p-6 md:p-12">
         <ProgressBar title="Ticket Selection" currentStep={1} totalSteps={3} />
 
         <div className="w-full bg-[#08252B] border border-[#0E464F] rounded-3xl p-6 mt-6">
@@ -61,7 +61,7 @@ const TicketSelection = () => {
               </p>
               <div className="flex items-center justify-center mt-3 text-sm space-x-2">
                 <MdLocationOn className="text-red-500" size={20} />
-                <span className="text-sm md:text-base font-Roboto font-normal leading-[24px] whitespace-nowrap">
+                <span className="text-sm md:text-base font-Roboto font-normal leading-[24px] text-center">
                   04 Rumens Road, Ikoyi, Lagos | Mar 15, 2025 | 7:00pm
                 </span>
               </div>
@@ -80,7 +80,7 @@ const TicketSelection = () => {
                   {tickets.map((ticket, index) => (
                     <button
                       key={index}
-                      className={`relative w-full h-[110px] p-4 border border-[#0E464F] rounded-lg transition-colors ${
+                      className={`relative w-full  p-4 border border-[#0E464F] rounded-lg transition-colors ${
                         selectedTicket?.type === ticket.type
                           ? "bg-[#197686] text-white"
                           : "bg-transparent"
@@ -98,14 +98,14 @@ const TicketSelection = () => {
 
             {/* Ticket Count Dropdown */}
             {selectedTicket && (
-              <div className="mt-5 w-full max-w-md">
+              <div className="mt-5 w-full max-w-md my-6">
                 <label className="text-sm">Number of Tickets</label>
                 <select
-                  className="w-full h-14 rounded-lg p-4 border border-[#07373f] bg-[#052228] text-white mb-5"
+                  className="w-full h-12 rounded-lg p-4 border border-[#07373f] bg-[#052228] text-white"
                   value={ticketCount}
                   onChange={(e) => updateTicketCount(Number(e.target.value))}
                 >
-                  {[...Array(selectedTicket.numberAval)].map((_, i) => (
+                  {[...Array(10)].map((_, i) => (
                     <option key={i + 1} value={i + 1}>
                       {i + 1}
                     </option>
