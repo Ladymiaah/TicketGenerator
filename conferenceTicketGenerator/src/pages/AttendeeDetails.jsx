@@ -13,6 +13,7 @@ const AttendeeDetailsPage = () => {
 
   const handleBackButton = () => {
     navigate("/");
+    window.location.reload();
   };
 
   const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -61,8 +62,8 @@ const AttendeeDetailsPage = () => {
   };
 
   return (
-    <div className="flex md:max-w-6xl  mx-auto min-h-screen bg-[#041E23] text-[#FFFFFF] px-4 md:px-10">
-      <div className="w-full border border-[#0E464F] rounded-lg p-4 md:p-6 lg:p-10 mt-10 mb-10 ">
+    <div className="flex items-center justify-center md:max-w-3xl  mx-auto min-h-screen bg-[#041E23] text-[#FFFFFF] px-4 md:px-10">
+      <div className="w-full border border-[#0E464F] rounded-xl p-4 md:p-6 lg:p-10 mt-10 mb-10 ">
         <ProgressBar title="Attendee Details" currentStep={2} totalSteps={3} />
         <div className="w-full bg-[#052228] border border-[#0E464F] rounded-3xl p-4 md:p-6 mt-6">
           <ImageUploader />
