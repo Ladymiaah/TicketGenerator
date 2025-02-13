@@ -77,13 +77,14 @@
 // export default TicketReadypage;
 
 import ProgressBar from "../components/progressbar";
-import { useTicket } from "../context/TicketContext";
+
 import TicketCard from "../components/TicketCard"; // Import TicketCard
+import ButtonGroup from "../components/ButtonGroup";
 
 function TicketReadypage() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#041E23] text-[#FFFFFF]">
-      <div className="w-[750px] border border-[#0E464F] rounded-3xl p-6 mt-10 mb-10 bg-[#052228]">
+    <div className="flex items-center justify-center min-h-screen bg-[#041E23] text-[#FFFFFF] md:max-w-6xl mx-auto w-full rounded-lg">
+      <div className="border border-[#0E464F] rounded-3xl p-6 mt-10 mb-10 bg-[#052228]">
         <ProgressBar title="Ready" currentStep={3} totalSteps={3} />
         <div className="mt-5 text-center">
           <h1 className="font-Alatsi text-[32px]">Your Ticket is Booked!</h1>
@@ -94,6 +95,12 @@ function TicketReadypage() {
 
         {/* Ticket Card Component */}
         <TicketCard />
+        <ButtonGroup
+          onCancelClick={() => {}}
+          onNextClick={() => {}}
+          cancelText="Back"
+          nextText="Download Ticket"
+        />
       </div>
     </div>
   );

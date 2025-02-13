@@ -61,8 +61,8 @@ const AttendeeDetailsPage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#041E23] text-[#FFFFFF] px-4 md:px-10">
-      <div className="w-full max-w-[90%] md:max-w-[700px] lg:max-w-[900px] border border-[#0E464F] rounded-3xl p-4 md:p-6 lg:p-10 mt-10 mb-10">
+    <div className="flex md:max-w-6xl  mx-auto min-h-screen bg-[#041E23] text-[#FFFFFF] px-4 md:px-10">
+      <div className="w-full border border-[#0E464F] rounded-lg p-4 md:p-6 lg:p-10 mt-10 mb-10 ">
         <ProgressBar title="Attendee Details" currentStep={2} totalSteps={3} />
         <div className="w-full bg-[#052228] border border-[#0E464F] rounded-3xl p-4 md:p-6 mt-6">
           <ImageUploader />

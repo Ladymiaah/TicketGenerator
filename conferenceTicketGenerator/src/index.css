@@ -5,5 +5,14 @@
 
 
 body {
-  @apply bg-[#02191D] w-[1440px] min-h-[1082px] mt-[34px] pt-[112px] pb-[112px] flex flex-col gap-[80px];
+  @apply bg-[#02191D] min-h-screen p-4;
+}
+.debug{
+  outline: 1px solid red;
+}
+
+
+.font-rage{
+  font-family: 'Road Rage';
+  font-style: normal;
 }
